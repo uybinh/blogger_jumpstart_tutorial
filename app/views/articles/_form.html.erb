@@ -16,6 +16,10 @@
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list %>
   </p>
+  <% if @article.image.exists? %>
+    <%= label_tag "Attached Image" %>
+    <%= image_tag @article.image.url %>
+  <% end %>
   <p>
     <%= f.label :image, "Attach an Image" %>
     <%= f.file_field :image %>
@@ -25,4 +29,4 @@
     <%= f.submit %>
   </p>
 
-<% end %> 
+<% end %>
