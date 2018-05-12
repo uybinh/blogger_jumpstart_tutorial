@@ -8,7 +8,7 @@
 <p><%= @article.body %></p>
 <%= link_to "delete", article_path(@article), method: :delete %>
 <%= link_to "edit", edit_article_path(@article) %>
-<br>
+<%= image_tag @article.image.url%>
 <h3>Comments (<%= @article.comments.size %>)</h3>
 <%= render partial: "articles/comment", collection: @article.comments %>
 <%= render partial: "comments/form" %>
