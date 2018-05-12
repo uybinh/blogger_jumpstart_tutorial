@@ -8,4 +8,12 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
   end
 
+  def destroy
+    @tag = Tag.find(params[:id])
+    @tagging = Tagging.find_by(tag_id: params[:id])
+    @tagging.destroy
+    @tag.destroy
+    redirect_to tags_path
+  end
+
 end
