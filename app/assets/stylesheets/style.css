@@ -1,0 +1,12 @@
+.article-image img {
+  width: 100%;
+}
+
+.login-box {
+  max-width: 500px;
+  margin: auto;
+}
+
+#logged_status {
+  text-align: center;
+}

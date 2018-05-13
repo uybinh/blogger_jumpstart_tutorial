@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   resources :author_sessions, only: [:new, :create, :destroy]
   get 'login' => 'author_sessions#new'
+  post 'login' => 'author_sessions#create'
   get 'logout' => 'author_sessions#destroy'
 end
