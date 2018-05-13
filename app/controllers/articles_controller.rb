@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(article_params)
+    @article.authors.push(current_user)
     flash.notice = "Article '#{@article.title}' successfully created!"
     redirect_to article_path(@article)
   end

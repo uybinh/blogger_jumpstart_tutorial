@@ -5,8 +5,15 @@
   <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
+<p>
+  <%= "Author".pluralize(@article.authors.count)%>:
+  <% @article.authors.each do |author| %>
+  <%= link_to author.username, author_path(author) %>
+  (<%= link_to author.email, author_path(author) %>)
+  <% end %>
+</p>
 <p><%= @article.body %></p>
-<% if logged_in? %>
+<% if logged_in? && @article.authors.include?(current_user) %>
   <%= link_to "delete", article_path(@article), method: :delete %>
   <%= link_to "edit", edit_article_path(@article) %>
 <% end %>

@@ -1,7 +1,9 @@
 class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :taggings, dependent: :destroy
-  has_many :tags, through: :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
+  has_many :ownerships, dependent: :destroy
+  has_many :authors, through: :ownerships
 
 
   has_attached_file :image
@@ -16,4 +18,5 @@ class Article < ApplicationRecord
     new_or_found_tags = tags_name.collect {|name| Tag.find_or_create_by(name: name)}
     self.tags = new_or_found_tags
   end
+
 end
