@@ -1,0 +1,22 @@
+.article-image img {
+  width: 100%;
+}
+
+.login-box {
+  max-width: 500px;
+  margin: auto;
+}
+
+#logged_status {
+  text-align: center;
+}
+
+.flash {
+  text-align: center;
+  padding: 5px;
+}
+
+.username {
+  color: green;
+  font-weight: 600;
+}
