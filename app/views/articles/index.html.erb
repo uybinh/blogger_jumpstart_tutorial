@@ -3,7 +3,13 @@
   <% @articles.each do |article| %>
   <li>
     <%= link_to article.title, article_path(article), class: "article_title", id: "article_#{article.id}" %>
+    <% if logged_in? %>
+      <%= link_to "edit", edit_article_path(article) %>
+      <%= link_to "delete", article_path(article), method: :delete %>
+    <% end %>
   </li>
   <% end %>
 </ul>
-<%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+<% if logged_in? %>
+  <%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+<% end %>
