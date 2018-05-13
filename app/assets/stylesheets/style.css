@@ -10,3 +10,13 @@
 #logged_status {
   text-align: center;
 }
+
+.flash {
+  text-align: center;
+  padding: 5px;
+}
+
+.username {
+  color: green;
+  font-weight: 600;
+}

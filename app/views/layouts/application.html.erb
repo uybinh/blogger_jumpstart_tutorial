@@ -10,19 +10,15 @@
   </head>
 
   <body>
+    <%= render partial: "partials/navbar" %>
     <div class="container">
     <div class="flash"><%= flash.notice %></div>
       <%= yield %>
       <br>
       <div id="logged_status">
-        <h6>
-          <% if logged_in? %>
-            <%= "Logged in as #{current_user.email}" %>
-            <%= link_to "(logout)", logout_path %>
-          <% else %>
-            <%= link_to "(login)", login_path %>
-          <% end %>
-        </h6>
+        <% if logged_in? %>
+          <h6>Logged in as <span class="username"><%= "#{current_user.username}" %></span></h6>
+        <% end %>
       </div>
     </div>
   </body>
