@@ -5,13 +5,13 @@
     <p><%= simple_format(@article.body) %></p>
   </div>
 
-  <div class="article_iamge">
-    <% if @article.image.exists? %>
-    <div class="article-image">
-      <%= image_tag @article.image.url%>
-    </div>
-    <% end %>
+
+  <% if @article.image.exists? %>
+  <div class="article-image">
+    <%= image_tag @article.image.url%>
   </div>
+  <% end %>
+
 
   <div class="article_meta">
     <div class="article_tag">

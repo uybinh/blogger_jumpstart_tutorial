@@ -18,7 +18,9 @@
   </div>
   <% if @article.image.exists? %>
     <%= label_tag "Attached Image" %>
-    <%= image_tag @article.image.url %>
+    <div class="article-image">
+      <%= image_tag @article.image.url%>
+    </div>
   <% end %>
   <div class="form-group"
     <%= f.label :image, "Attach an Image" %>
