@@ -1,28 +1,45 @@
-<h1><%= @article.title %></h1>
-<p>
-  Tags:
-  <% @article.tags.each do |tag| %>
-  <%= link_to tag.name, tag_path(tag) %>
-  <% end %>
-</p>
-<p>
-  <%= "Author".pluralize(@article.authors.count)%>:
-  <% @article.authors.each do |author| %>
-  <%= link_to author.username, author_path(author) %>
-  (<%= link_to author.email, author_path(author) %>)
-  <% end %>
-</p>
-<p><%= @article.body %></p>
-<% if logged_in? && @article.authors.include?(current_user) %>
-  <%= link_to "delete", article_path(@article), method: :delete %>
-  <%= link_to "edit", edit_article_path(@article) %>
-<% end %>
-<% if @article.image.exists? %>
-  <div class="article-image">
-    <%= image_tag @article.image.url%>
+<div class="article">
+  <h1><%= @article.title %></h1>
+
+  <div class="article_body">
+    <p><%= simple_format(@article.body) %></p>
   </div>
-  <% end %>
-<h3>Comments (<%= @article.comments.size %>)</h3>
-<%= render partial: "articles/comment", collection: @article.comments %>
-<%= render partial: "comments/form" %>
+
+  <div class="article_iamge">
+    <% if @article.image.exists? %>
+    <div class="article-image">
+      <%= image_tag @article.image.url%>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="article_meta">
+    <div class="article_tag">
+      Tags:
+      <% @article.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag) %>
+      <% end %>
+    </div>
+    <div class="article_author">
+      <%= "Author".pluralize(@article.authors.count)%>:
+      <% @article.authors.each do |author| %>
+      <%= link_to author.username, author_path(author) %>
+      (<%= link_to author.email, author_path(author) %>)
+      <% end %>
+    </div>
+    <div class="article_control">
+      <% if logged_in? && @article.authors.include?(current_user) %>
+        <%= link_to "delete", article_path(@article), method: :delete %>
+        <%= link_to "edit", edit_article_path(@article) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="article_comment">
+    <h4>Comments (<%= @article.comments.size %>)</h4>
+    <%= render partial: "articles/comment", collection: @article.comments %>
+    <%= render partial: "comments/form" %>
+  </div>
+
+</div>
 <%= link_to "<= Back to articles list", articles_path %>

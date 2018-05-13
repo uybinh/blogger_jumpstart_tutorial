@@ -20,3 +20,15 @@
   color: green;
   font-weight: 600;
 }
+
+.container {
+  padding-top: 30px;
+}
+
+.article > div {
+  margin-bottom: 20px;
+}
+
+.article_body {
+  padding: 10px 0 10px 0;
+}

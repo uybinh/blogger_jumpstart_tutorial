@@ -1,5 +1,6 @@
 
 <div class="login-box">
+
   <h1>Login</h1>
   <%= form_tag login_path, method: :post do %>
   <div class="form-group">
@@ -10,8 +11,11 @@
     <%= label_tag :password %>
     <%= password_field_tag :password,"", placeholder: "Your password", class: "form-control" %>
   </div>
-  <div class="actions">
+  <div class="form-group">
     <%= submit_tag "Login", class: "btn btn-primary" %>
   </div>
   <% end %>
+  <p>Test account:<br>
+  Email: <strong>binh@gmail.com</strong> <br>
+  Password: <strong>binh</strong></p>
 </div>

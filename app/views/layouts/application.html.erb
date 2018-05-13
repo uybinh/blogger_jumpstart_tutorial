@@ -12,7 +12,9 @@
   <body>
     <%= render partial: "partials/navbar" %>
     <div class="container">
-    <div class="flash"><%= flash.notice %></div>
+    <% if flash.notice %>
+      <div class="flash"><%= flash.notice %></div>
+    <% end %>
       <%= yield %>
       <br>
       <div id="logged_status">
